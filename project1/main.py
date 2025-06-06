@@ -6,7 +6,6 @@ import subprocess
 import time
 from typing import List, Dict
 import sys
-from fractions import gcd
 
 """
 
@@ -44,7 +43,7 @@ def nbrgen(N, start=1):
 
     while start > int(float(math.sqrt(k * N))):
         k += 1
-    
+
     j = start % int(float(math.sqrt(k * N)))
 
     return int(float(math.sqrt(k * N) + j))
@@ -84,10 +83,10 @@ def read_factor_base(F: int):
             line = line.split()
             line = list(map(int, line))
             primes += line
-            
+
             if len(primes) > F:
                 break
-        
+
         while len(primes) > F:
                 del primes[-1]
     return primes
@@ -172,7 +171,7 @@ if __name__ == '__main__':
         contents = "".join(contents)
         f.write(contents)
 
-    # Execute Binary Solver 
+    # Execute Binary Solver
     subprocess.call(["./GaussBin.exe", 'binary_matrix.txt', 'solution.out'])
     with open('solution.out') as f:
         solution = f.readlines()
